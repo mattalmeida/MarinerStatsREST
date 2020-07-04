@@ -1,1 +1,1 @@
-# MarinerStatsRest
+# MarinerStatsREST
