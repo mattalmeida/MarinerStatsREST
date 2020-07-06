@@ -1,6 +1,6 @@
 # MarinerStatsREST
 
-7/6
+## 7/6 \
 I'll start using this as something of a journal/changelog to sort out what I'm working on, my thought processes, and what's next.  
 
 I finally have something committed as the table structure for the data model.  I spent a lot of time thinking in circles about what was needed and what was worth storing vs computing. \
@@ -21,10 +21,10 @@ Search feature on yearly stats
 Search filter on stats against teams
 'Recent searches' get saved in 'cache' table for easy re-lookup.  Timed existence
 
-## Potential problems
+### Potential problems
 Chadwick uses a player id system that seems to keep the players unique per season, but I worry if over long time periods those are reused and may lead to complexities/bugs.  The player_id field in players may need to accept a range and may be more trouble than it is worth if those change and are reused over a career.
 
-** Next up
+### Next up
 Load text files into parquets and load into DBs
 Create API for server, search
 Create DOCKERFILE for db creation
