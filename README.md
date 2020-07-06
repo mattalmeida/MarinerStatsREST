@@ -1,6 +1,6 @@
 # MarinerStatsREST
 
-## 7/ 
+## 7/6 
 I'll start using this as something of a journal/changelog to sort out what I'm working on, my thought processes, and what's next.  
 
 I finally have something committed as the table structure for the data model.  I spent a lot of time thinking in circles about what was needed and what was worth storing vs computing. \
