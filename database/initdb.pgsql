@@ -8,8 +8,9 @@ CREATE TABLE IF NOT EXISTS teams (
 -- Creates players table
 CREATE TABLE IF NOT EXISTS players (
     player_uuid uuid PRIMARY KEY
-    , player_id_list varchar NOT NULL
+    , player_id varchar NOT NULL
     , full_name varchar NOT NULL
+    , starting_date varchar NOT NULL
     , nicknames varchar
     , team_list varchar
     , bat_stat_id NULL
