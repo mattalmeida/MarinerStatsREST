@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import fs from "fs-extra";
 import { Client } from "pg";
+import { ParquetSchema, ParquetWriter, ParquetReader } from 'parquets';
 
 const init = async () => {
     dotenv.config();
@@ -22,6 +23,14 @@ const init = async () => {
         await client.end();
     }
 };
+
+const buildParquets = async () => {
+
+}
+
+const loadDB = async () => {
+
+}
 
 init().then( () => {
     console.log( "finished" );
