@@ -26,6 +26,9 @@ npm run initdb
 
 ## Journalish kinda thingy
 
+## 7/8
+Drew up UX for the search and results pages.\
+
 ## 7/7
 I clarified that the player_ids were all unique so I can use that to look up players/use as REST element id.\
 I'm worrying about waiting to compute things like OBP, especially for all players (something one would expect to be queried 'more' frequently.  I'm wondering if I shouldn't just store that so no extra compute is necessary for more general queries.\
