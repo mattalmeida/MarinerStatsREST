@@ -1,5 +1,5 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-CREATE TABLE IF NOT EXISTS bat_stats
+CREATE TABLE IF NOT EXISTS teams
 (
     team_id VARCHAR PRIMARY KEY,
     player_list VARCHAR,
