@@ -1,5 +1,5 @@
 import * as promise from 'bluebird';
-import * as dbConfig from '../../db-config.json'; // db connection details
+import * as dbConfig from '../db-config.json'; // db connection details
 import * as pgPromise from 'pg-promise'; // pg-promise core library
 import {Diagnostics} from './diagnostics';
 import {IInitOptions, IDatabase, IMain} from 'pg-promise';
