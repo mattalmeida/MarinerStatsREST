@@ -27,12 +27,15 @@
   },
   "homepage": "https://github.com/mattalmeida/MarinerStatsREST#readme",
   "dependencies": {
+    "@types/bluebird": "^3.5.32",
+    "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "parquets": "^0.10.7",
     "pg": "^8.3.0",
+    "pg-monitor": "^1.4.1",
     "pg-promise": "^10.5.8"
   },
   "devDependencies": {

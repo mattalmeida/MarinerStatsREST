@@ -1,0 +1,1 @@
+TRUNCATE TABLE bat_stats
