@@ -1,14 +1,14 @@
 -- Creates teams table
 CREATE TABLE IF NOT EXISTS teams (
     team_id varchar PRIMARY KEY
-    , stat_id uuid
+    , bat_stat_id uuid
+    , pitch_stat_id uuid
     , player_list varchar
 );
 
 -- Creates players table
 CREATE TABLE IF NOT EXISTS players (
-    player_uuid uuid PRIMARY KEY
-    , player_id varchar NOT NULL
+    player_id varchar NOT NULL PRIMARY KEY
     , full_name varchar NOT NULL
     , starting_date varchar NOT NULL
     , nicknames varchar
@@ -26,14 +26,13 @@ CREATE TABLE IF NOT EXISTS bat_stats (
     , hits INTEGER
     , strikeouts INTEGER
     , walks INTEGER
+    , bat_avg NUMERIC(4,3)
     , runs INTEGER
     , runs_batted_in INTEGER
     , home_runs INTEGER
-    , sac_fly INTEGER
-    , first_base INTEGER
-    , second_base INTEGER
-    , third_base INTEGER
-    , hit_by_pitch INTEGER
+    , on_base_percentage NUMERIC(4,3)
+    , slugging NUMERIC(4,3)
+    , stolen_bases INTEGER
 );
 
 -- Creates pitch_stats table
@@ -46,7 +45,6 @@ CREATE TABLE IF NOT EXISTS pitch_stats (
     , innings_pitched INTEGER
     , wins INTEGER
     , saves INTEGER
-    , runs INTEGER
-    , runs_from_errors INTEGER
-    , runs_from_passed_ball INTEGER
+    , earned_runs INTEGER
+    , earned_run_avg NUMERIC(4,3)
 );
