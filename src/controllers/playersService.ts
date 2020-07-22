@@ -1,12 +1,6 @@
 import pgPromise from "pg-promise";
 
-export class PlayersController {
-    async requestPlayer = () => {
-        
-}
-}
-
-const requestPlayer = ( player_id: String ) => {
+export const requestPlayer = async ( player_id: String ) => {
     const port = parseInt(process.env.PGPORT || "5432", 10);
     const config = {
         database: process.env.PGDATABASE || "postgres",
@@ -18,7 +12,7 @@ const requestPlayer = ( player_id: String ) => {
     const pgp = pgPromise();
     const db = pgp(config);
 
-    const players = await db.any( `
+    const player = await db.any( `
                 SELECT
                     player_id
                     , full_name
@@ -28,7 +22,24 @@ const requestPlayer = ( player_id: String ) => {
                     , pitch_stat_id
                     , bat_hand
                     , pitch_hand
-                FROM    guitars
+                FROM    players
                 WHERE   player_id = $[playerId]`,
-        { player_id: `%${ req.params.player_id }%` } );
+        { player_id: `%${ player_id }%` } );
+
+    const pitchStats = await db.any(`
+                SELECT
+                    at_bats
+                    , hits
+                    , strike_outs
+                    , walks
+                    , bat_avg
+                    , runs
+                    , runs_batted_in
+                    , home_run
+                    , on_base_percentage
+                    , slugging
+                    , steals
+                FROM    batting_statistics
+                WHERE   stat_id = $[stat_id]`,
+        { stat_id: player. } )
 }
