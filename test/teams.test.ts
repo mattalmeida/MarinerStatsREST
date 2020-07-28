@@ -27,7 +27,7 @@ describe('GET api/v1/teams/:team_id', () => {
       });
     });
 
-   it('should return Test Ohtani', () => {
+   it('should return Test Team', () => {
         return chai.request(app).get('/api/v1/teams/test_team')
           .then(res => {
             expect(res.body).to.be.json;
@@ -44,16 +44,16 @@ describe('GET api/v1/teams/:team_id', () => {
               'wins',
               'saves',
             ]);
-            expect(pitchStats.innings).to.equal();
-            expect(pitchStats.hits).to.equal();
-            expect(pitchStats.walks).to.equal();
-            expect(pitchStats.strike_outs).to.equal();
-            expect(pitchStats.earned_runs).to.equal();
-            expect(pitchStats.home_runs).to.equal();
-            expect(pitchStats.whip).to.equal();
-            expect(pitchStats.era).to.equal();
-            expect(pitchStats.wins).to.equal();
-            expect(pitchStats.saves).to.equal();
+            expect(pitchStats.innings).to.equal(270);
+            expect(pitchStats.hits).to.equal(100);
+            expect(pitchStats.walks).to.equal(80);
+            expect(pitchStats.strike_outs).to.equal(150);
+            expect(pitchStats.earned_runs).to.equal(90);
+            expect(pitchStats.home_runs).to.equal(50);
+            expect(pitchStats.whip).to.equal(0.667);
+            expect(pitchStats.era).to.equal(3.000);
+            expect(pitchStats.wins).to.equal(11);
+            expect(pitchStats.saves).to.equal(1);
             let batStats = res.body.bat_stats;
             expect(batStats).to.have.all.keys([
               'at_bats',
@@ -68,17 +68,17 @@ describe('GET api/v1/teams/:team_id', () => {
               'ops',
               'stolen_bases'
             ]);
-            expect(batStats.at_bats).to.equal();
-            expect(batStats.hits).to.equal();
-            expect(batStats.walks).to.equal();
-            expect(batStats.strike_outs).to.equal();
-            expect(batStats.runs).to.equal();
-            expect(batStats.rbi).to.equal();
-            expect(batStats.home_run).to.equal();
-            expect(batStats.bat_avg).to.equal();
-            expect(batStats.obp).to.equal();
-            expect(batStats.ops).to.equal();
-            expect(batStats.stolen_bases).to.equal();
+            expect(batStats.at_bats).to.equal(500);
+            expect(batStats.hits).to.equal(140);
+            expect(batStats.walks).to.equal(40);
+            expect(batStats.strike_outs).to.equal(140);
+            expect(batStats.runs).to.equal(43);
+            expect(batStats.rbi).to.equal(30);
+            expect(batStats.home_run).to.equal(25);
+            expect(batStats.bat_avg).to.equal(0.280);
+            expect(batStats.obp).to.equal(0.360);
+            expect(batStats.ops).to.equal(0.639);
+            expect(batStats.stolen_bases).to.equal(5);
             expect(res.body.players).to.be.an.instanceof(Array);
             let playersArray = res.body.players;
             expect(playersArray).to.have.lengthOf(3);
