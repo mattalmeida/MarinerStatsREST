@@ -31,7 +31,8 @@ describe('GET api/v1/teams/:team_id', () => {
         return chai.request(app).get('/api/v1/teams/test_team')
           .then(res => {
             expect(res.body).to.be.json;
-            let pitchStats = res.body.pitch_stats;
+            expect(res.body.team.full_name).to.equal("Portland Pwords");
+            let pitchStats = res.body.team.pitch_stats;
             expect(pitchStats).to.have.all.keys([
               'innings',
               'hits',
@@ -54,7 +55,7 @@ describe('GET api/v1/teams/:team_id', () => {
             expect(pitchStats.era).to.equal(3.000);
             expect(pitchStats.wins).to.equal(11);
             expect(pitchStats.saves).to.equal(1);
-            let batStats = res.body.bat_stats;
+            let batStats = res.body.team.bat_stats;
             expect(batStats).to.have.all.keys([
               'at_bats',
               'hits',
@@ -79,7 +80,7 @@ describe('GET api/v1/teams/:team_id', () => {
             expect(batStats.obp).to.equal(0.360);
             expect(batStats.ops).to.equal(0.639);
             expect(batStats.stolen_bases).to.equal(5);
-            expect(res.body.players).to.be.an.instanceof(Array);
+            expect(res.body.team.players).to.be.an.instanceof(Array);
             let playersArray = res.body.players;
             expect(playersArray).to.have.lengthOf(3);
             expect(playersArray).to.equal(["test_batter", "test_pitcher", "test_ohtani"])

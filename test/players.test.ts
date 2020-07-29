@@ -31,8 +31,13 @@ describe('GET api/v1/players/:player_id', () => {
     return chai.request(app).get('/api/v1/players/test_batter')
       .then(res => {
         expect(res.body).to.be.json;
-        expect(res.body.pitch_stats).to.be.empty;
-        let batStats = res.body.bat_stats;
+        expect(res.body.player.pitch_stats).to.be.empty;
+        expect(res.body.player.full_name).to.equal("Testy McKinsley");
+        expect(res.body.player.starting_date).to.equal(Date(?));
+        expect(res.body.player.team_list).to.equal(["Seattle Pilots", "Jersey Devils"]);
+        expect(res.body.player.bat_hand).to.equal("r");
+        expect(res.body.player.pitch_hand).to.be.empty;
+        let batStats = res.body.player.bat_stats;
         expect(batStats).to.have.all.keys([
           'at_bats',
           'hits',
@@ -57,6 +62,7 @@ describe('GET api/v1/players/:player_id', () => {
         expect(batStats.obp).to.equal(0.376);
         expect(batStats.ops).to.equal(0.857);
         expect(batStats.stolen_bases).to.equal(17);
+
       });
   });
 
@@ -64,8 +70,13 @@ describe('GET api/v1/players/:player_id', () => {
     return chai.request(app).get('/api/v1/players/test_pitcher')
       .then(res => {
         expect(res.body).to.be.json;
-        expect(res.body.bat_stats).to.be.empty;
-        let pitchStats = res.body.pitch_stats;
+        expect(res.body.player.bat_stats).to.be.empty;
+        expect(res.body.player.full_name).to.equal("Johnny Spitball");
+        expect(res.body.player.starting_date).to.equal(Date(?));
+        expect(res.body.player.team_list).to.equal(["New York Mets", "Springfield Isotopes"]);
+        expect(res.body.player.bat_hand).to.be.empty;
+        expect(res.body.player.pitch_hand).to.equal("l");
+        let pitchStats = res.body.player.pitch_stats;
         expect(pitchStats).to.have.all.keys([
           'innings',
           'hits',
@@ -95,7 +106,12 @@ describe('GET api/v1/players/:player_id', () => {
     return chai.request(app).get('/api/v1/players/test_ohtani')
       .then(res => {
         expect(res.body).to.be.json;
-        let pitchStats = res.body.pitch_stats;
+        expect(res.body.player.full_name).to.equal("Mister Bothways");
+        expect(res.body.player.starting_date).to.equal(Date(?));
+        expect(res.body.player.team_list).to.equal(["Los Angeles Dodgers"]);
+        expect(res.body.player.bat_hand).to.equal("l");
+        expect(res.body.player.pitch_hand).to.equal("r");
+        let pitchStats = res.body.player.pitch_stats;
         expect(pitchStats).to.have.all.keys([
           'innings',
           'hits',
@@ -118,7 +134,7 @@ describe('GET api/v1/players/:player_id', () => {
         expect(pitchStats.era).to.equal(3.000);
         expect(pitchStats.wins).to.equal(11);
         expect(pitchStats.saves).to.equal(1);
-        let batStats = res.body.bat_stats;
+        let batStats = res.body.player.bat_stats;
         expect(batStats).to.have.all.keys([
           'at_bats',
           'hits',
