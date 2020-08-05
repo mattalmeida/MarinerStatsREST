@@ -168,21 +168,21 @@ describe('GET v1/players/:player_id/stat/:stat', () => {
     return chai.request(app).get('/api/v1/players/test_ohtani/stat/bHits')
       .then(res => {
         expect(res.body).to.be.json;
-        expect(res.body.???).to.equal("140");
+        expect(res.body.???).to.equal("140"); //TODO figure out json and implement body
     });
   });
 
   it('should return a stat does not exist failure from a stat request that does not exist', () => {
     return chai.request(app).get('/api/v1/players/test_pitcher/stat/bHits')
       .then(res => {
-
+        expect();
     });
   });
 
   it('should return a player does not exist failure from a player that does not exist', () => {
     return chai.request(app).get('/api/v1/players/test_bat_boy/stat/bHits')
       .then(res => {
-
+        expect();
     });
   });
 });
