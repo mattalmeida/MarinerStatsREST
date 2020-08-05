@@ -162,3 +162,36 @@ describe('GET api/v1/players/:player_id', () => {
       });
     });
 });
+
+describe('GET v1/players/:player_id/stat/:stat', () => {
+  it('should return a stat from Test Ohtani', () => {
+    return chai.request(app).get('/api/v1/players/test_ohtani/stat/bHits')
+      .then(res => {
+        expect(res.body).to.be.json;
+        expect(res.body.???).to.equal("140");
+    });
+  });
+
+  it('should return a stat does not exist failure from a stat request that does not exist', () => {
+    return chai.request(app).get('/api/v1/players/test_pitcher/stat/bHits')
+      .then(res => {
+
+    });
+  });
+
+  it('should return a player does not exist failure from a player that does not exist', () => {
+    return chai.request(app).get('/api/v1/players/test_bat_boy/stat/bHits')
+      .then(res => {
+
+    });
+  });
+});
+
+describe('GET v1/players/all_names', () => {
+  it('should return all player names in datastore', () => {
+    return chai.request(app).get('/api/v1/players/all_names')
+      .then(res => {
+
+    });
+  });
+});
