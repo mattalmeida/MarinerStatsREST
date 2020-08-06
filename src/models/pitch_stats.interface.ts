@@ -1,6 +1,6 @@
 // src/models/pitch_stats.interface.ts
 
-export interface PitchStatistics {
+export interface PitchStatResponse {
   innings: number;
   hits: number;
   walks: number;

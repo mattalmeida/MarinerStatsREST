@@ -1,4 +1,4 @@
-export interface Player {
+export interface PlayerData {
     id: string; //UUID?
     full_name: string;
     starting_date: string; //Special date format?
@@ -10,14 +10,14 @@ export interface Player {
     pitch_hand: string;//Char?
 }
 
-export interface Team {
+export interface TeamData {
     team_id: string;
     player_list: string; //Can this be array??
     bat_stat_id: string;
     pitch_stat_id: string;
 }
 
-export interface BatStats {
+export interface BatStatsData {
     stat_id: string;
     at_bats: number;
     strikeouts: number;
@@ -31,7 +31,7 @@ export interface BatStats {
     stolen_bases: number;
 }
 
-export interface PitchStats {
+export interface PitchStatsData {
     stat_id: string;
     pitches: number;
     strikeouts: number;

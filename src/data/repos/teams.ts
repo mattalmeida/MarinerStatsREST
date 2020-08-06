@@ -1,7 +1,7 @@
 import {IDatabase, IMain} from 'pg-promise';
 import {IResult} from 'pg-promise/typescript/pg-subset';
-import {Team} from '../data_models';
-import {products as sql} from '../sql';
+import {TeamData} from '../data_models';
+import {teams as sql} from '../sql';
 
 export class TeamsRepository {
 
@@ -38,7 +38,7 @@ export class TeamsRepository {
     // Adds a new record and returns the full object;
     // It is also an example of mapping HTTP requests into query parameters;
     async add(values: { team_id: string, player_list: string, bat_stat_id: string, pitch_stat_id: string }):
-        Promise<Team> {
+        Promise<TeamData> {
         return this.db.one(sql.add, {
             teamId: +values.team_id,
             playerList: values.player_list,

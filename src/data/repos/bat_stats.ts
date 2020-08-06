@@ -1,6 +1,6 @@
 import {IDatabase, IMain} from 'pg-promise';
 import {IResult} from 'pg-promise/typescript/pg-subset';
-import {BatStats} from '../data_models';
+import {BatStatsData} from '../data_models';
 import {bat_stats as sql} from '../sql';
 
 export class BatStatsRepository {
@@ -36,7 +36,7 @@ export class BatStatsRepository {
     }
 
     // Adds a new user, and returns the new object;
-    async add(name: string): Promise<BatStats> {
+    async add(name: string): Promise<BatStatsData> {
         return this.db.one(sql.add, name);
     }
 
@@ -47,7 +47,7 @@ export class BatStatsRepository {
 
     // Tries to find a user from id;
     //param is really UUID
-    async findById(id: string): Promise<BatStats | null> {
+    async findById(id: string): Promise<BatStatsData | null> {
         return this.db.oneOrNone('SELECT * FROM bat_stats WHERE stat_id = $1', +id);
     }
 }

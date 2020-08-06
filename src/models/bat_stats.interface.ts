@@ -1,6 +1,6 @@
 // src/models/bat_stats.interface.ts
 
-export interface BatStatistics {
+export interface BatStatResponse {
   at_bats: number;
   hits: number;
   strike_outs: number;

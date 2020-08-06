@@ -1,10 +1,10 @@
 // src/models/team_response.interface.ts
-import { BatStatistics } from "./bat_stats.interface";
-import { PitchStatistics } from "./pitch_stats.interface";
+import { BatStatResponse } from "./bat_stats.interface";
+import { PitchStatResponse } from "./pitch_stats.interface";
 
 export interface TeamResponse {
-  bat_stats: BatStatistics;
-  pitch_stats: PitchStatistics;
+  bat_stats: BatStatResponse;
+  pitch_stats: PitchStatResponse;
   full_name: string;
   players: PlayerArray
 }

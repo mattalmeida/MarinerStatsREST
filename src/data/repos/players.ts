@@ -1,7 +1,7 @@
 import {IDatabase, IMain} from 'pg-promise';
 import {IResult} from 'pg-promise/typescript/pg-subset';
-import {Player} from '../data_models';
-import {users as sql} from '../sql';
+import {PlayerData} from '../data_models';
+import {players as sql} from '../sql';
 
 export class PlayersRepository {
 
@@ -36,7 +36,7 @@ export class PlayersRepository {
     }
 
     // Adds a new user, and returns the new object;
-    async add(name: string): Promise<Player> {
+    async add(name: string): Promise<PlayerData> {
         return this.db.one(sql.add, name);
     }
 
@@ -47,7 +47,11 @@ export class PlayersRepository {
 
     // Tries to find a user from id;
     //param is really UUID
-    async findById(id: string): Promise<Player | null> {
+    async findById(id: string): Promise<PlayerData | null> {
         return this.db.oneOrNone('SELECT * FROM players WHERE stat_id = $1', +id);
+    }
+
+    async retrievePlayerNames(): Promise<List<String> | null> {
+        return this.db.any('SELECT full_name FROM players')
     }
 }
