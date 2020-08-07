@@ -1,4 +1,24 @@
 import { ParquetSchema, ParquetWriter, ParquetReader } from 'parquets';
+import * as csvParse from 'csv-parser';
+import fs = require('fs');
+
+export const readIntoParquet = () {
+  var myParser:csvParse.CsvParser = csvParse({delimiter: ','}, function(data, err) {
+      console.log(data);
+  }) as csvParse.CsvParser;
+
+  fs.createReadStream('data.csv')
+    .pipe(csv({ header: false }))
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+      console.log(results);
+      // [
+      //   { NAME: 'Daffy Duck', AGE: '24' },
+      //   { NAME: 'Bugs Bunny', AGE: '22' }
+      // ]
+    });
+
+}
 
 let userParquest = new ParquetSchema({
     playerID: { type: 'UTF8' },

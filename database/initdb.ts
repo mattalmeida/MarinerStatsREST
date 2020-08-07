@@ -25,6 +25,7 @@ const init = async () => {
 };
 
 const buildParquets = async () => {
+    // Initially just replace, later check for recency and append new data
 
 }
 
